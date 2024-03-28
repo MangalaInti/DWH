@@ -1,0 +1,233 @@
+
+What is DWH?
+
+Data Warehouse was introduced in 1970’s by William Inmon. He defined it as “an integrated, subject-oriented, non-volatile and time-variant collection of data in support of management’s decision making process….”
+
+Integrated - data is gathered from variety of sources like flat files, relational databases etc. 
+
+Subject-Oriented - data that describes a particular subject instead of company's ongoing process. For eg: data about products, customers, sales, revenue etc.
+
+Non-Volatile - the data stored in the data warehouse cannot be modified.
+
+Time-Variant - data warehouse stores historical data. ​​​​​​​
+
+--Major Functions of DWH
+DWH stores the data from disparate source systems. DWH is built using ETL process 
+A DWH is aggregated and summarized data, suitable for decision making
+DWH is a single version of Truth
+
+Where DWH is helpful
+Decision making
+Enterprise Reporting
+Data mining: data in warehouse is mined and used for spotting trends and patterns.
+
+--Types Decision making
+
+There are typically 3 types of decisions.
+
+1. Strategic - Decisions made by the senior leadership team of an enterprise. These decisions have a bigger and a long-term impact. 
+
+Example (a): Managers of a popular eatery need to take a strategic decision whether to continue in the cafe business.
+
+ 2. Tactical -  Decisions made by middle level management. These decisions are made more frequently but have a lesser impact compared to strategic decisions.
+
+Example (b): Supervisors of the Café need to take a tactical decision on how to attract new customers either by opening early in the mornings or by opening on Saturdays. 
+
+
+3. Operational - Decisions usually made by operational managers. Related to day-to-day operations with short-term effects.
+
+Example (c): A simple operational decision by the retail manager to manage stock level of any product based on its demand. 
+
+
+
+ **********************
+
+Assume that you are a customer of online retailer shop Amazon and you buy various house-hold products online on a weekly basis.
+
+With this scenario, below explained are some of the important terminologies of dimension model:
+
+Surrogate key:
+Surrogate key is an additional primary key of dimension table.
+
+Dimension:
+A descriptive information is used to group transactional data. This provides context to analyze transactional information.
+
+Example: Customer, Product, Date, Time, Location
+
+Fact:
+A transactional data analyzed by business user.
+
+Example: Sales, Qty Sold, Profit, Loss
+
+Hierarchy:
+A set of related dimensional attributes (columns).
+
+Example: If a customer dimension consists attributes such as city, state and country, these attributes form customer location hierarchy.
+	
+	customer location -> City -> state -> country
+	calender hierarchy -> Day -> month -> Quater -> Semester ->Year
+
+Grain:
+An attribute of hierarchy at which data is collected or stored in the fact table.
+
+Example: If you store data in the fact table for each city on daily basis, then city and day are grains.
+
+Schema: 
+An arrangement of fact and dimension table.
+
+Example: A fact table sales is connected to dimensions customer, date, product, and geography is example of simplest schema (star).
+
+Let us proceed to understand these terms discussed in detail. After explanation of each term there is an assignment to check your understanding.
+
+
+****************
+
+--Dimensions
+Types of dimension tables
+
+1. Slowly changing dimension
+2. Radidly changing
+3. Degenerate
+4. Role Playing
+5. Junk/Garbage
+
+
+--Slowly changing dimension
+
+These changes in the data can be captured using any of the three implementations explained below using an example.
+
+Type – 1 (Overwrite history)
+In this implementation, old data is replaced with new data, hence, history will not be preserved. New record will inserted and any changes to existing record will get updated.
+
+Advantages:
+It is easy to implement because data can be overwritten (updated) the old information.
+
+Disadvantages:
+All old information deleted permanently, so not possible to recover it.
+
+Type-2 (Preserves history):
+In this implementation, a new record is inserted to add the new information. Both the old and the new record will coexist in the table to preserve history. The new record with new state information is assigned a new primary key as shown below:
+
+Advantages:
+This allows to keep all historical information accurately.
+
+Disadvantages:
+The size of table increases rapidly with each update. Frequent update and insert to table cause performance and maintenance problems.  
+
+Type-3 (Partially preserves history):
+In this type, the dimension structure is changed by adding a new column or modifying the existing columns. In Arnold's example, two new attributes are added - one to insert the new value and another one to keep the track of change as shown below (assuming the new data is inserted on December 15, 2013):
+
+Advantages:
+It does NOT create storage problem, as old data gets updated.
+It allows to preserve limited amount of historical data.
+​​​​​​
+
+Disadvantages:
+Type-3 does store limited historical data which may not be useful in time series analysis.
+
+
+--Rapidly changing dimension
+A dimension, whose one or more attributes value changes rapidly over a period is called rapidly changing dimension. Some of the attributes are:
+
+Examples:
+Age of a person
+
+Test score of a student
+
+Credit history score of a customer
+
+Account status of a customer
+
+--Role Playing Dimension
+
+Same dimension table we will use more than once order_date, ship_date, close_date
+
+Sometimes, a single dimension needs to be used for different context (in analysis). Such dimensions are known as role playing dimension.
+
+The given transaction data can be analyzed either by "OrderDateKey" or "DueDateKey".
+
+It can be achieved in two ways:
+
+Solution-1: Design two "Date" dimension tables with unique structure and the same data and use them to do analysis.
+
+Solution-2: Design only one "Date" dimension table with two "Views" and use these "Views" to do analysis.
+
+Solution-1: Design two "Date" dimension tables ("ORDER_DATE", "DUE_DATE") with unique structure. Let us see, why the data in these dimension tables should be unique. For example, many customers may place orders on "01-JAN-2017" while some customers may receive their orders on the same date.
+
+--Degenerate dimension:
+
+In DWH degenrate dimension will not have any separate dimension table, it sits in the fact table
+A dimension without any descriptive or contextual information. In real life, a degenerate dimension does not have their own separate existence.
+
+Assume that, you want to display the details of orders placed by a customer (use the given transaction data).
+
+In this scenario,  "SalesOrderNo" is contextual data but it is meaningless to keep it in a separate dimension table (along with key values such as "OrderDateKey", "CustomerKey", or "ProductKey" etc. to map purchase details) as it does not contain any attributes. It is good to keep such data along with transaction data to avoid managing one extra table with redundant data to create dimension using the transaction data.
+
+--Junk Dimension
+
+In real life scenarios, Junk dimension are rarely used. These:
+
+If you have huge dimension table with lot of columns storing flags values. We can create separate junk dim to store these values  
+
+dimension table consists of columns such as column with few unique values, typically status flags (yes/no), Boolean values (true/false), or classifications (male/female). 
+
+contains attributes that neither belongs to the fact tables nor to the dimension tables.
+
+can have values such as true/false or yes/no which have no correlation with each other and  such values can be converted  into a descriptive attribute.
+
+Example: Sales fact table in a retail store can have fields like transaction ID, coupon-indicator (whether a coupon was used in the transaction) and customer-card-type (what kind of a customer - silver, gold, or platinum etc.). These fields can be combined into a single junk dimension to be used in a warehouse.
+
+--Facts
+1. Additive
+2. Semi -Additive
+3. Non-Additive
+4. Factless
+
+
+--Additive Fact : Facts that are summarized or aggregated across all dimensions are called as Additive facts.
+
+As the fact "SalesAmount" is aggregated across all dimensional attributes, it is an additive fact.	
+
+--Semi Additive Fact:
+A fact that can be summarized or aggregated only across few dimensions is categorized as Semi-additive fact.
+
+In the given diagram the table "SalesQuota" is linked to "Date", "Employee", but not to "Customer" and "ResellerSales" tables. It is because, sales targets are defined only for "Employee" on "Quarterly" basis.  So, the sales targets can be summarized by "Employee" or "Date" dimension, but not by "Customer" or "ResellerSales".
+
+--Factlessfact
+A fact table devoid of any transactional data is called Factless fact.
+
+In the given diagram, a customer may have multiple reasons for placing an order for a product, and an order may have multiple products which in turn may have multiple reasons for its sale. So, to define many to many relationships between a "Customer", "Product" and "Sales reason" dimensions, a factless fact "InternerSalesReason" is introduced which contains keys and no transactional data.
+
+--Schemas
+
+1. Star
+2. Snowflake
+3. Multi-star
+
+An arrangement of fact and dimension table is called schema. ER diagram or logical data model or physical data model can be used to represent the details of the schema.
+
+Schema can be categorizes as:
+
+Star schema
+
+Snowflake schema
+
+Multi-star schema/Star constellations
+
+Star schema ​​​​​​​is the simplest schema design, wherein the fact table is at the center of the schema and the dimensions are placed around it. The fact-table contains foreign keys, references from dimension tables. Here dimension tables are in denormalized form.
+
+In the given example, "InternetSales" is the fact table which has foreign keys like "ProductKey", "CustomerKey" etc. and connects to the respective dimensions like "Product", "Customer" etc.
+
+Snowflake schema is star schema with normalized dimension tables.
+
+Snowflaking is implemented in one of the following situations:
+
+A dimension table contains two or more attributes that define information at different grains.
+
+Each dimension table in the (normalized) group receives data from separate sources.
+
+In snowflake schema fact table is in de-normalized state where as dim tables are normalized
+In star schema both fact and Dim are de-normalized tables
+
+Data Model is star schema is Top Down, in snowflake it is Bottom Up
+
