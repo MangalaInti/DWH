@@ -1,0 +1,25 @@
+DWH is large centralized repository of data from various sources used for Business intelligence and decision making
+Data warehouse is used to store and analyse structured data. Reports and dashboards that can be used to track trends and make business choices
+
+star schema :A type of data model used in dwh that consists of a central
+fact table surrounded by dimension tables
+snowflake schema: A variation of star schema that uses normalized dim tables
+slowly changing dimensions(SCD) : A technique used for managing changes to dimensions data over time
+ETL : ETL is process of moving data from source systems to DWH
+
+Dimensional Modelling : A data modelling technique used in data warehousing for creating optimized data structures
+
+Change Data Capture(CDC) : A data integration technique  where changes in  source systems are captured  and propagated to target systems in near-real time
+
+DataMart: A subset of dwh that is designed for a specific business function or department
+
+Data lake is repository that holds large amount of raw, unstructured data in its native format
+Data lake is system that is used to store both structured and unstructured data. it is typically used to store raw data from variety of sources
+
+Hadoop: An open source framework for distributed storage and processing large data sets
+Hive : A datawarehouse system built on top of Hadoop for querying and analysis of large data sets
+Mapreduce : It is program for processing large data sets
+
+
+
+ 
