@@ -10,7 +10,7 @@ Subject-Oriented - data that describes a particular subject instead of company's
 Non-Volatile - the data stored in the data warehouse cannot be modified.
 
 Time-Variant - data warehouse stores historical data. ​​​​​​​
-
+Inmon methodology is also know as top-down approach 
 --Major Functions of DWH
 DWH stores the data from disparate source systems. DWH is built using ETL process 
 A DWH is aggregated and summarized data, suitable for decision making
