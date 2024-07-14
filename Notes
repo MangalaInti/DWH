@@ -3,7 +3,7 @@ What is DWH?
 
 Data Warehouse was introduced in 1970’s by William Inmon. He defined it as “an integrated, subject-oriented, non-volatile and time-variant collection of data in support of management’s decision making process….”
 
-Integrated - data is gathered from variety of sources like flat files, relational databases etc. 
+Integrated - data is gathered from variety of sources like flat files, relational databases etc. .
 
 Subject-Oriented - data that describes a particular subject instead of company's ongoing process. For eg: data about products, customers, sales, revenue etc.
 
