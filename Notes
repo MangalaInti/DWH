@@ -1,7 +1,10 @@
 
 What is DWH?
 
-Data Warehouse was introduced in 1970’s by William Inmon. He defined it as “an integrated, subject-oriented, non-volatile and time-variant collection of data in support of management’s decision making process….”
+Data Warehouse was introduced in 1970’s by William Inmon. He defined it as “an integrated, subject-oriented, non-volatile and time-variant collection of data in support of management’s decision making process….” He followed  Top Down approach
+
+sources -> DWH -> Datamart
+Kimball -> sources -> Datamarts -> DWH
 
 Integrated - data is gathered from variety of sources like flat files, relational databases etc. .
 
@@ -68,6 +71,7 @@ Example: If a customer dimension consists attributes such as city, state and cou
 	calender hierarchy -> Day -> month -> Quater -> Semester ->Year
 
 Grain:
+Lowest level of information stored in fact table.
 An attribute of hierarchy at which data is collected or stored in the fact table.
 
 Example: If you store data in the fact table for each city on daily basis, then city and day are grains.
