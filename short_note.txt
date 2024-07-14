@@ -20,6 +20,12 @@ Hadoop: An open source framework for distributed storage and processing large da
 Hive : A datawarehouse system built on top of Hadoop for querying and analysis of large data sets
 Mapreduce : It is program for processing large data sets
 
+What is BI
+It helps in improving the decision making in business.
+
+What is OLAP?
+Data in OLAP are stored in the dimensional form rather than the relational form. OLAP deals with multi-dimensional data. OLAP tools uses multi-dimensional data model for storing data. The data is viewed in the data cube format
+
 
 
  
