@@ -83,6 +83,11 @@ Example: A fact table sales is connected to dimensions customer, date, product, 
 
 Let us proceed to understand these terms discussed in detail. After explanation of each term there is an assignment to check your understanding.
 
+Surrogate key : 
+
+Surrogate key is an additional primary key of dimension table which is populated using ETL (Extract, Transform and Load) process.
+If we need to maintain historical data we need surrogate that uniquely identifies a record. It is numeric system generated value
+
 
 ****************
 
