@@ -10,3 +10,39 @@ ELT : ELT stands for Extract Load and Transform, It is the process exracting the
 (DWH/DL). Transformation is done on target system on  needed basis 
 It is mostly used cloud platform
 ELT is used when we have process large scale of data
+
+--Key differences between Delta Lake, Data Lake, Lakehouse, and OneLake.
+
+1. Data Lake
+A Data Lake is a centralized repository designed to store large volumes of raw, unstructured, semi-structured, and structured data at scale.
+
+Key Features:
+
+Stores data in its native format (e.g., JSON, Parquet, CSV, or images).
+Ideal for big data analytics and machine learning.
+Uses object storage systems (e.g., Amazon S3, Azure Blob, Google Cloud Storage).
+Data can be ingested without upfront modeling or transformation (schema-on-read)
+
+2. Delta Lake
+
+Delta Lake is an open-source storage layer that builds on top of a data lake to provide enhanced features such as ACID transactions and schema enforcement.
+
+Key Features:
+
+Ensures data reliability and consistency (ACID transactions).
+Adds versioning for time-travel capabilities (e.g., viewing historical data states).
+Handles schema evolution, allowing flexibility as data changes.
+Supports batch and streaming data processing simultaneously.
+
+ 3. Lakehouse
+
+The Lakehouse is a hybrid data architecture that combines the best of data lakes and data warehouses into a single platform.
+
+Key Features:
+
+Provides data lake scalability and flexibility with data warehouse performance for analytics.
+Supports structured, semi-structured, and unstructured data in one system.
+Allows for real-time and batch processing.
+Reduces data duplication by removing the need for separate storage layers for lakes and warehouses
+4. OneLake
+
