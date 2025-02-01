@@ -1,0 +1,49 @@
+https://blogs.perficient.com/2023/04/19/implementation-of-scd-type-1-in-informatica-powercenter/
+
+https://www.disoln.org/2012/08/slowly-changing-dimension-type-2-implementation-using-informatica.html
+
+--SCD Type I
+SRC table can be same structure as Tgt it depends on requirement but we get columns 
+
+Emp_SRC (ID, Name, Sal, Phone)
+Emp_Tgt (ID, Name, Sal, Phone)
+
+SRC -> LkP_Emp_TGT(lkp_id = src_id) -> Router(Insert - ISNULL(id)
+Update - IIF (SRC_ID= LKP_ID AND  SRC_Name = LKP_Name or SRC_sal != LKP_sal or SRC_Phone != LKP_Phone, True, Flase) - > Tgt_Insert, TGT_Update 
+
+--SCD Type II
+
+--SCD Type II
+
+Insert -> If the ID doesn't exists in Cust_dim, its considered as new record
+Update -> If the ID exists in Cust_dim and name or loc have changed
+         a.  Expire the Old Record: Update the existing row’s end_dt to the current date
+         b.  Insert a New Record: Insert a new row with the updated values, a new surrogate key (Cust_key), a start_dt equal to the current date, 
+             and an end_dt null
+Deleted Record (Optional): If you need to handle deletions (e.g., a record exists in target but not in source), you might update its end_dt to mark
+it as “closed” (or add a status flag).
+
+--Target table structure
+CUST_DIM(Cust_key, id, name, loc, start_dt, end_dt)
+
+Here cust_key is surrogate key to identify the record unique in Dim table
+
+SRC -> 
+LKP - > SELECT cust_key, id, loc, flag, start_dt, end_dt from cust_dim where end_st is not null
+        lkp_id = src_id return cust_key
+
+Exp -> 
+-- Determine Change Flag
+v_change_flag = IIF(ISNULL(lkp.id), 'New',
+                   IIF(lkp.name <> src.name OR lkp.loc <> src.loc, 'CHANGED', 'UNCHANGED'))
+
+-- Set Effective Dates for New Row
+v_new_start_dt = SYSDATE
+v_new_end_dt   = TO_DATE('9999-12-31','YYYY-MM-DD')  -- or NULL if you prefer
+
+
+Router -> Insert = > o_flag ='New' or o_flag = 'U'
+          Update = > o_flag = 'U'
+
+
+
