@@ -1,0 +1,32 @@
+---Dimensional Data Modeling 
+It is a modelling technique in which we store our data in the form of ''Facts & Dimenstions'' for easy quering and reporting.
+Dimensional data modeling is generally considered a ''denormalized form of data modeling'''. 
+Key Concepts in Dimensional Modeling 
+
+1. Fact Table 
+What it is: This table stores ''quantitative data'' like sales numbers, revenue, or order amounts.
+
+2. Dimension Table 
+What it is: This table stores descriptive data about the facts (like time, customer, product). Dimensions help provide context to the facts.
+
+3. Measures 
+What it is: The numeric values in the Fact Table that you want to analyze (e.g., sales, profits, quantities).
+
+4. Attributes 
+What it is: These are the details about the data in Dimension Tables.
+
+
+-- What is Data modelling
+Data model is a techique to oragnize the data in systematic way so that it be read easily. Its kind of blue print.
+
+start with analysis of data
+idenfity the entities and attributes
+establish the relationship
+primary keys, constraints, indexes
+
+The process of data modelling involves several steps.
+  1. Requirement gathering
+  2. Conceptual design
+  3. Logical design
+  4. Physical design
+  5. Implementation 
