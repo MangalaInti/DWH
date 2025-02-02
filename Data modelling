@@ -15,6 +15,13 @@ What it is: The numeric values in the Fact Table that you want to analyze (e.g.,
 4. Attributes 
 What it is: These are the details about the data in Dimension Tables.
 
+Dimensional modeling:
+- Unique technique of structuring data
+- Commonly used in DWH
+- Optimized for faster data retrieval 
+- Oriented around performance & usability
+- Designed Reporting / OLAP
+
 
 -- What is Data modelling
 Data model is a techique to oragnize the data in systematic way so that it be read easily. Its kind of blue print.
