@@ -18,6 +18,7 @@ Inmon methodology is also know as top-down approach
 DWH stores the data from disparate source systems. DWH is built using ETL process 
 A DWH is aggregated and summarized data, suitable for decision making
 DWH is a single version of Truth
+Single version of truth means consistency of data 
 
 Where DWH is helpful
 Decision making
