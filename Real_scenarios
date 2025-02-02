@@ -1,0 +1,100 @@
+DWH DESIGN
+
+As I’m currently designing a data warehouse for a project, I came across a classic challenge in data modeling: handling many-to-many relationships. This gave me the perfect opportunity to dive deeper into how bridge tables can be used effectively in such scenarios.
+
+For those who might be dealing with similar complexities, here’s what I’ve learned:
+
+1- **Many-to-Many Relationships:** A common situation where one entity relates to multiple other entities and vice versa. For example, students enrolling in multiple courses, or products linked to multiple suppliers.
+
+2- **Hierarchical Structures:** When you need to model organizational charts, product categories, or similar structures.
+
+3- **Role-Playing Dimensions:** Think of cases where a single entity can play different roles across your data, like someone being both an employee and a customer.
+
+4- **Complex Attribute Grouping:** When facts have several descriptive attributes, and you want to avoid duplicating data.
+
+Using a bridge table in these cases not only simplifies your design but also provides flexibility in managing relationships without bloating your schema.
+
+Data modeling can be intricate, but overcoming challenges like these is what makes the process both rewarding and insightful!
+
+----
+Q11. Write a query using three tables to calculate total sales by product category for the year 2024.
+Q12. Write a query to retrieve the most recently registered customer details.
+Q13. Based on Inventory and Stock tables, write a query to fetch product and stock level details for items not listed in the Inventory table.
+Q14. What are your career aspirations?
+Q15. Which databases have you worked with during your five years of experience?
+
+-----
+* Dimension modelling
+– Developed by Dr.Kimball
+– It's a DWH design concept
+– It's a process to convert OLTP data into OLAP data in 
+ the form of Dimension tables and Fact tables and 
+ maintain relation between them
+– Dimension modelling is heart of data warehouse
+
+* Facts or Measure
+– Measures are the numeric values that we want to 
+ aggregate, slice, dice, and analyze
+– Measure has following properties:
+1) How they should be formatted
+2) How they should aggregate up
+3) How they interact with specific dimensions and so on
+ – Measure always answer question for 'How much' or 
+ 'How many' etc.
+ – Data in the fact table can be filtered & grouped 
+ (Sliced & Diced)
+
+let's get into details of each
+🔹Dimension
+ — Dimension is a string, which always answer the 
+ questions like 'When','Where','What','Who','Which' etc
+— eg. Customer, Product, Time, Geography etc.
+— Dimension Table Primary key is foreign key of Fact
+ table
+— Dimension contains multiple Hierarchies
+— Hierarchies supports drilling up & down
+— Hierarchies speeds the aggregation in a cube while
+ processing
+— Event though Hierarchies are Optional.... These are
+ recommended
+
+* Note
+ – Load data to Dimension table first (Pk)
+ – Later load data to Fact tables (Fk)
+ – Dim tables are implemented with incremental loading
+ – Fact tables always full load
+________________________________________________________
+* How Fact & Dimension tables are organized in a DWH?
+— Star schema
+— Snow flake schema
+— Galaxy (Double star schema)
+
+1) Star schema – Star schema means dimension tables are directly linked to the fact table
+
+2) Snow flake schema – Dimension tables are indirectly linked to the fact table or Dimension table is linking to another dimension table
+________________________________________________________
+ Star Schema vs Snow Flake Schema 
+-------------------------------------------------------------------------------------------------
+* Star Schema
+— It has redundant data & hence tough to maintain/
+ change
+— Less complex queries & hence easy to understand
+— Less foreign keys so faster execution time of cube
+— Has De-Normalized tables
+— Good to use for large databases
+— Less number of joints
+— When dimension table has less number of rows we 
+ can go for this
+-------------------------------------------------------------------------------------------------
+* Snow Flake Schema
+— No Redundancy & hence more easy to maintain/
+ Change
+— More complex queries & hence less easy is to
+ understand
+— More foreign keys so takes more execution time of
+ cube
+— Has Normalized tables
+— Good to use for small databases
+— More number of joins
+— When dimension table is relatively big in size it is
+ better as it reduces space
