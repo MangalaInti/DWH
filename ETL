@@ -24,7 +24,8 @@ ELT is widely used in cloud platforms due to their scalability and processing po
 --Key differences between Delta Lake, Data Lake, Lakehouse, and OneLake.
 
 1. Data Lake
-A Data Lake is a centralized repository designed to store large volumes of raw, unstructured, semi-structured, and structured data at scale.
+A Data Lake is a centralized repository designed to store large volumes of raw, unstructured, 
+semi-structured, and structured data at scale.
 
 Key Features:
 
@@ -35,7 +36,8 @@ Data can be ingested without upfront modeling or transformation (schema-on-read)
 
 2. Delta Lake
 
-Delta Lake is an open-source storage layer that builds on top of a data lake to provide enhanced features such as ACID transactions and schema enforcement.
+Delta Lake is an open-source storage layer that builds on top of a data lake to 
+provide enhanced features such as ACID transactions and schema enforcement.
 
 Key Features:
 
@@ -46,7 +48,8 @@ Supports batch and streaming data processing simultaneously.
 
  3. Lakehouse
 
-The Lakehouse is a hybrid data architecture that combines the best of data lakes and data warehouses into a single platform.
+The Lakehouse is a hybrid data architecture that combines the best of data lakes and data warehouses 
+into a single platform.
 
 Key Features:
 
