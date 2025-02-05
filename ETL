@@ -6,10 +6,17 @@ Traditional DWH which will have predefined schema and structure. It supports str
 ETL is mostly used Analytical purpose. e.g OALP
 
 
-ELT : ELT stands for Extract Load and Transform, It is the process exracting the  data from different source system, simply load extracted raw data into target
-(DWH/DL). Transformation is done on target system on  needed basis 
-It is mostly used cloud platform
-ELT is used when we have process large scale of data
+ELT :
+ELT (Extract, Load, Transform) is a data integration approach where data is first extracted from various source systems 
+and loaded directly into the target system (Data Warehouse (DWH) or Data Lake (DL)) in its raw form. 
+Since data is initially loaded as-is, transformations can be performed in stages on need basis
+It is particularly suited for handling large volumes of raw data (such as log files, IoT data, or unstructured data) 
+handling real-time or near-real-time  data processing needs.
+ 
+ELT is widely used in cloud platforms due to their scalability and processing power. 
+
+
+
 
 --Key differences between Delta Lake, Data Lake, Lakehouse, and OneLake.
 
