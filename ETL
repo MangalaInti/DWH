@@ -1,8 +1,11 @@
 Difference between ETL vs ELT
-ETL : ETL stands for Extract Transform and Load, It is the process exracting the  data from different source system and transforming the data which includes
-cleansing, standardizing date formats, removing duplicates, applying business rules and load them into DWH
+ETL : ETL stands for Extract Transform and Load, It is the techique used in DWH for exracting the data from
+different source system and transforming the data which includes cleansing, standardizing date formats,
+removing duplicates, applying business rules and load them into DWH
+It is mostly used for structured data
 
-Traditional DWH which will have predefined schema and structure. It supports structured data type
+
+Traditional DWH which will have predefined schema and structure, its schema on write. It supports structured data type
 ETL is mostly used Analytical purpose. e.g OALP
 
 
@@ -12,7 +15,7 @@ and loaded directly into the target system (Data Warehouse (DWH) or Data Lake (D
 Since data is initially loaded as-is, transformations can be performed in stages on need basis
 It is particularly suited for handling large volumes of raw data (such as log files, IoT data, or unstructured data) 
 handling real-time or near-real-time  data processing needs.
- 
+It is schema on read  
 ELT is widely used in cloud platforms due to their scalability and processing power. 
 
 
