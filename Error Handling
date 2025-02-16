@@ -23,7 +23,11 @@ There are special functions which can be used to handle the errors which arise d
 2) ABORT- Stops the session, and issues a specified error message to the session log file. When the Integration Service encounters an ABORT function, it             stops transforming data at that row.
 
 
-ERRORS: Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log.
+Errors are broadly classified into two types
+1. Fatal Errors - When a job fails with fatal error (e.g table doesn't exist etc) To handle fatal errors, you can either use a restartable 
+   ETL design for your workflow or use the workflow recovery features of Informatica PowerCenter 
+2. Non Fatal Errors  -  Non-fatal exception causes the records to be dropped out in the ETL process, we can non fatal errors using exceptions
+
 
 EXCEPTIONS: It is a code which we write to handle the errors so that our program runs successfully and log the error or exiting with error message.
 
@@ -48,9 +52,11 @@ In Informatica we can capture errors at the following stages:
 
 In expression transformation we have two functions
 
-1) ERROR- Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log. The 	Integration Service does not write these skipped rows to the session reject file.
+1) ERROR- Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log. 
+          The Integration Service does not write these skipped rows to the session reject file.
 
-2) ABORT- Stops the session, and issues a specified error message to the session 	log file. When the Integration Service encounters an ABORT function, it stops 	transforming data at that row.
+2) ABORT- Stops the session, and issues a specified error message to the session log file. When the Integration Service encounters an ABORT function, 
+         it stops transforming data at that row.
 
 --Error handling Option in Session
 When an error is encountered we can either write it to a bad file or error file or an 	error table which can hold the specific error related to specific requirement.
@@ -58,4 +64,4 @@ When an error is encountered we can either write it to a bad file or error file 
 Error File- We can define Error file directory and error file as we can see below in the screen shot. 
 	Tracing level, define the level to which the detail of error is required.
 	Stop on error- Indicates how many non-fatal errors the Integration Service can 	encounter before it stops the session
-Reject File- By default, the Integration Service process creates a reject file for each 	target in the session. The reject file contains rows of data that the writer does not 	write to targets. 	
+Reject File- By default, the Integration Service process creates a reject file for each target in the session. The reject file contains rows of data that the writer does not 	write to targets. 	
