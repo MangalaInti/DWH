@@ -1,0 +1,61 @@
+--Exception Handling in Informatica
+
+Error handling is process that deals with bad records coming from source. 
+
+Informatica provides  error logging system that facilitate to log the error and rejected data into relational tables or flat files effectively 
+and further let your technical team to review and validate the errors 
+
+It’s better to handle all the possible exception cases in the code, before it goes live. 
+
+--Example of few data issues
+ 1. Invalid date formats
+ 2. Getting alphanumeric data in numeric column
+ 3. Null - Suppose we are doing a lookup on a table or file, and no match is found, in such case a NULL will be returned, 
+    so need to handle this to avoid failure of code.
+ 4. Overflow - We need to take care of the length of the target column while populating aggregated values, like COUNT and SUM
+
+
+There are special functions which can be used to handle the errors which arise during any operation in Informatica.
+
+1) ERROR- Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log. 
+          The Integration Service does not write these skipped rows to the session reject file.
+
+2) ABORT- Stops the session, and issues a specified error message to the session log file. When the Integration Service encounters an ABORT function, it             stops transforming data at that row.
+
+
+ERRORS: Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log.
+
+EXCEPTIONS: It is a code which we write to handle the errors so that our program runs successfully and log the error or exiting with error message.
+
+
+Some of the common exceptions we can handle
+
+1. Validate Date format - IS_DATE
+2. Number column we get alphanumeric character data (IS_NUMBER)
+3. Space - If there is no data coming only spaces are present in the source (IS_SPACE)
+4. Null - Suppose we are doing a lookup on a table or file, and no match is found, in such case a NULL will be returned, 
+  so need to handle this to avoid failure of code.
+5. Overflow - We need to take care of the length of the target column while populating aggregated values, like COUNT and SUM, 
+  if the length of these aggregated values exceeds the given length in the target  
+  
+In Informatica we can capture errors at the following stages: 
+1) Transformation rule.
+2) In case of exception log the error.
+3) In case of loading to target.  
+
+
+--Custom error handling can be done here
+
+In expression transformation we have two functions
+
+1) ERROR- Causes the Integration Service to skip a row and issue an error message, which you define. The error message displays in the session log. The 	Integration Service does not write these skipped rows to the session reject file.
+
+2) ABORT- Stops the session, and issues a specified error message to the session 	log file. When the Integration Service encounters an ABORT function, it stops 	transforming data at that row.
+
+--Error handling Option in Session
+When an error is encountered we can either write it to a bad file or error file or an 	error table which can hold the specific error related to specific requirement.
+
+Error File- We can define Error file directory and error file as we can see below in the screen shot. 
+	Tracing level, define the level to which the detail of error is required.
+	Stop on error- Indicates how many non-fatal errors the Integration Service can 	encounter before it stops the session
+Reject File- By default, the Integration Service process creates a reject file for each 	target in the session. The reject file contains rows of data that the writer does not 	write to targets. 	
