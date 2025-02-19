@@ -7,6 +7,14 @@ and further let your technical team to review and validate the errors
 
 It’s better to handle all the possible exception cases in the code, before it goes live. 
 
+Error Handling: Depending on the nature of the error or exception, appropriate error handling mechanisms need to be 
+implemented. For instance, if the error is due to missing data, we can configure the ETL pipeline to skip that 
+particular record and continue with the rest of the data.
+
+Data Quality Checks: In addition to error handling, it's essential to have data quality checks in place. 
+These checks can help to identify and rectify data quality issues such as missing values, data discrepancies, 
+and data format issues.
+
 --Example of few data issues
  1. Invalid date formats
  2. Getting alphanumeric data in numeric column
