@@ -46,4 +46,20 @@ Router -> Insert = > o_flag ='New' or o_flag = 'U'
           Update = > o_flag = 'U'
 
 
+Source
+   ↓
+Lookup on Target (active records)
+   ↓
+Expression (compare fields)
+   ↓
+Router (change detected / no change)
+   ↓                ↓
+Expire Old      Do Nothing
+(Update - N)  
+   ↓
+Insert New
+(Insert - Y)
+
+
+
 
