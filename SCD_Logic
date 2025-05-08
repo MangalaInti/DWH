@@ -34,17 +34,23 @@ LKP - > SELECT cust_key, id, loc, flag, start_dt, end_dt from cust_dim where end
 
 Exp -> 
 -- Determine Change Flag
-v_change_flag = IIF(ISNULL(lkp.id), 'New',
-                   IIF(lkp.name <> src.name OR lkp.loc <> src.loc, 'CHANGED', 'UNCHANGED'))
+O_flag_insert = IIF(ISNULL(CUST_ID),TRUE,FLASE)
+O_FLAG_UPDATE = IIF(kp.name <> src.name OR lkp.loc <> src.loc), TRUE,FALSE)
+
 
 -- Set Effective Dates for New Row
 v_new_start_dt = SYSDATE
 v_new_end_dt   = TO_DATE('9999-12-31','YYYY-MM-DD')  -- or NULL if you prefer
 
 
-Router -> Insert = > o_flag ='New' or o_flag = 'U'
-          Update = > o_flag = 'U'
+Router -> Insert = > o_flag_insert
+          Update = > o_flag_update
 
+Sequence_generator => connect NEXTVAL -> Customer_key
+
+Targets => Insert
+           Insert _update
+           Update
 
 Source
    ↓
@@ -59,6 +65,9 @@ Expire Old      Do Nothing
    ↓
 Insert New
 (Insert - Y)
+
+
+https://www.youtube.com/watch?v=wN2gRt-4VZA
 
 
 
