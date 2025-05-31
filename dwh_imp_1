@@ -1,0 +1,14 @@
+When we build relationships between FACT and DIMENSION tables, the relationship is always many-to-one.
+Many records are in the FACT table and there’s only one corresponding record in the DIMENSION tables.
+
+Types of FACT tables:
+1.Granular/Transactional FACT table -> Mocst common type of FACT table , 1 transaction = 1 row
+
+2. Periodic FACT table -> 1row != 1 transaction
+  transactions over  a particular period(e.g Monthly, weekly
+
+3. Accumulating FACT table → 1 row = process, lot of date/timestamp columns usually present (Ex: supply chain processes having multiple date columns such as order_date, dispatch_date, deliver_date, etc.)
+
+
+Conformed DIMENSION table →A DIMENSION table would be shared by multiple FACT tables e.g TIME_Dimension
+Role Playing DIMENSION table → When a DIMENSION performs more than 1 role, Connecting FACT table with DIMENSION table on multiple conditions
