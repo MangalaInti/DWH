@@ -24,7 +24,8 @@ What is BI
 It helps in improving the decision making in business.
 
 What is OLAP?
-Data in OLAP are stored in the dimensional form rather than the relational form. OLAP deals with multi-dimensional data. OLAP tools uses multi-dimensional data model for storing data. The data is viewed in the data cube format
+Data in OLAP are stored in the dimensional form rather than the relational form. OLAP deals with multi-dimensional data. 
+OLAP tools uses multi-dimensional data model for storing data. The data is viewed in the data cube format
 
 
 
