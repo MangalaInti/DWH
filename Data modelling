@@ -7,7 +7,8 @@ Key Concepts in Dimensional Modeling
 What it is: This table stores ''quantitative data'' like sales numbers, revenue, or order amounts.
 
 2. Dimension Table 
-What it is: This table stores descriptive data about the facts (like time, customer, product). Dimensions help provide context to the facts.
+What it is: This table stores descriptive data about the facts (like time, customer, product). 
+Dimensions help provide context to the facts.
 
 3. Measures 
 What it is: The numeric values in the Fact Table that you want to analyze (e.g., sales, profits, quantities).
