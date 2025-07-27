@@ -4,7 +4,7 @@ https://datadandies.nl/index.php/2024/11/10/3-types-of-fact-tables/
 According to the book, there are 3 main types of fact tables:
 -         Transaction 
 -         Periodic snapshot
--         Accumulating snapshot
+-         Accumulating snapshot.
 
 A transaction fact table inserts a new record for every transaction that takes place. An obvious example would be a sales fact table: for every sale, a new record is inserted in a table. 
 
