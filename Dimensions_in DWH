@@ -150,9 +150,11 @@ Account status of a customer
 
 --Role Playing Dimension
 
-Same dimension table we will use more than once order_date, ship_date, close_date
+In some cases, a single dimension table can playmultiple roles in a data model. 
+For example, a date dimension can be used to represent both the order date and the ship date, 
+each serving as a different role in the fact table.
 
-Sometimes, a single dimension needs to be used for different context (in analysis). Such dimensions are known as role playing dimension.
+Same dimension table we will use more than once order_date, ship_date, close_date
 
 The given transaction data can be analyzed either by "OrderDateKey" or "DueDateKey".
 
@@ -165,9 +167,11 @@ Solution-2: Design only one "Date" dimension table with two "Views" and use thes
 Solution-1: Design two "Date" dimension tables ("ORDER_DATE", "DUE_DATE") with unique structure. Let us see, why the data in these dimension tables should be unique. For example, many customers may place orders on "01-JAN-2017" while some customers may receive their orders on the same date.
 
 --Degenerate dimension:
-
+A degenerate dimension is a dimension that isderived from fact table data 
+and does not have a separate dimension table. 
+It is often used for grouping or aggregating facts.
 In DWH degenrate dimension will not have any separate dimension table, it sits in the fact table
-A dimension without any descriptive or contextual information. In real life, a degenerate dimension does not have their own separate existence.
+e.g - Transaction ID (Degenerate Dimension) : A unique identifier for each salestransaction
 
 Assume that, you want to display the details of orders placed by a customer (use the given transaction data).
 
