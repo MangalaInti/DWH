@@ -149,9 +149,14 @@ Credit history score of a customer
 
 Account status of a customer
 
+--Conformed Dimension
+These are Common Dimensions shared across multiple facts, this is maintain consistency of data.
+We can't have two locations dimensions, it can re-used across data marts nad dWH
+
+
 --Role Playing Dimension
 
-In some cases, a single dimension table can playmultiple roles in a data model. 
+In some cases, a single dimension table can play multiple roles in a data model. 
 For example, a date dimension can be used to represent both the order date and the ship date, 
 each serving as a different role in the fact table.
 
