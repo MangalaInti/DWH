@@ -1,10 +1,12 @@
 DWH DESIGN
 
-As I’m currently designing a data warehouse for a project, I came across a classic challenge in data modeling: handling many-to-many relationships. This gave me the perfect opportunity to dive deeper into how bridge tables can be used effectively in such scenarios.
+As I’m currently designing a data warehouse for a project, I came across a classic challenge in data modeling: handling many-to-many relationships. 
+This gave me the perfect opportunity to dive deeper into how bridge tables can be used effectively in such scenarios.
 
 For those who might be dealing with similar complexities, here’s what I’ve learned:
 
-1- **Many-to-Many Relationships:** A common situation where one entity relates to multiple other entities and vice versa. For example, students enrolling in multiple courses, or products linked to multiple suppliers.
+1- **Many-to-Many Relationships:** A common situation where one entity relates to multiple other entities and vice versa. 
+For example, students enrolling in multiple courses, or products linked to multiple suppliers.
 
 2- **Hierarchical Structures:** When you need to model organizational charts, product categories, or similar structures.
 
